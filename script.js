@@ -1,4 +1,10 @@
+function setStatus(text)
+{
+	console.log(text);
+	document.getElementById('status').innerHTML = text;
+}
+
 function main()
 {
-	document.getElementById('status').innerHTML = 'Game loaded. Welcome to Blackjack!';
+	setStatus('Game loaded. Welcome to Blackjack!');
 }
