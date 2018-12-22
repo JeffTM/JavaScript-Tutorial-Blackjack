@@ -26,3 +26,9 @@ Card.prototype.fullName = function()
 {
 	return titleCase(this.rank) + ' of ' + titleCase(pluralize(this.suit));
 }
+
+Card.prototype.isAce = function()
+{
+	let rankLower = this.rank.toLowerCase();
+	return rankLower === 'ace' || rankLower === 'a';
+}
