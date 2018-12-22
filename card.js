@@ -1,7 +1,7 @@
 //String manipulators. Maybe move these to their own file?
 function pluralize(str)
 {
-	if (str[s.length - 1] !== 's')
+	if (str[str.length - 1] !== 's')
 		return str + 's';
 	else
 		return str;
@@ -24,5 +24,5 @@ function Card(rank, suit, value = 0)
 
 Card.prototype.fullName = function()
 {
-	return titleCase(rank) + ' of ' + titleCase(pluralize(suit));
+	return titleCase(this.rank) + ' of ' + titleCase(pluralize(this.suit));
 }
