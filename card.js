@@ -1,3 +1,5 @@
+//Card object
+
 //String manipulators. Maybe move these to their own file?
 function pluralize(str)
 {
