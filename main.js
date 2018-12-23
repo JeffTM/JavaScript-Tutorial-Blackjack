@@ -23,6 +23,6 @@ function main()
 	addStatus('Game loaded. Welcome to Blackjack!');
 	for (i = 0; i < deck.length(); ++i)
 	{
-		addStatus(deck[i].fullName() + ' ' + deck[i].value + ' ace: ' + deck[i].isAce());
+		addStatus(deck.get(i).fullName() + ' ' + deck.get(i).value + ' ace: ' + deck.get(i).isAce());
 	}
 }
