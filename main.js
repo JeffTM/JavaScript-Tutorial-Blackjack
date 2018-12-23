@@ -1,38 +1,56 @@
 //Main game script
 //Requires card.js and deck.js to be loaded beforehand in that order
 
+//Game variables
+var deck = new Deck();
+var dealerHand = new Deck();
+var playerHand = new Deck();
+
+
 function addStatus(text)
 {
 	console.log(text);
 	let status = document.getElementById('status');
-	status.innerHTML = status.innerHTML + '<div>' + text + '</div>';
+	status.innerHTML = status.innerHTML + divSurround(text);
+}
+
+funciton divSurround(str)
+{
+	return '<div>' + str + '</div>';
 }
 
 function setStatus(text)
 {
 	console.log(text);
 	let status = document.getElementById('status');
-	status.innerHTML = '<div>' + text + '</div>';
+	status.innerHTML = divSurround(text);
 }
 
-function main()
+function setup()
 {
-	let deck = new Deck();
+	//Reset everything
 	deck.makeStandardDeck();
-	deck.shuffle();
-	addStatus('Game loaded. Welcome to Blackjack!');
-	for (i = 0; i < deck.length(); ++i)
-	{
-		addStatus(deck.get(i).fullName() + ' ' + deck.get(i).value + ' ace: ' + deck.get(i).isAce());
-	}
-	addStatus('Length: ' + deck.length());
-	addStatus('Popped card: ' + deck.pop().fullName());
-	addStatus('Length: ' + deck.length());
-	addStatus('Popped card: ' + deck.pop().fullName());
-	addStatus('Length: ' + deck.length());
-	addStatus('Peeked card: ' + deck.peek().fullName());
-	deck.clear();
-	addStatus('Length: ' + deck.length());
-	deck.push(new Card('test', 'test'));
-	addStatus('Popped card: ' + deck.pop().fullName());
+	//deck.shuffle();
+	dealerHand.clear();
+	playerHand.clear();
+	
+	//Initial deal
+	dealerHand.push(deck.pop());
+	dealerHand.push(deck.pop());
+	playerHand.push(deck.pop());
+	playerHand.push(deck.pop());
+	
+	showDealerHand();
+	showPlayerHand();
+}
+
+function showDealerHand()
+{
+	let divs = dealerHand.fullNameList.map(divSurround);
+	document.getElementById('dealerHand').innerHTML = divs.join('');
+}
+
+function showPlayerHand()
+{
+	
 }

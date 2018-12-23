@@ -22,6 +22,13 @@ Deck.prototype.clear = function()
 	this.cards = [];
 }
 
+Deck.prototype.fullNameList = function()
+{
+	return this.cards.map(function(card) {
+		return card.fullName();
+	});
+}
+
 Deck.prototype.isEmpty = function()
 {
 	return this.length() === 0;
@@ -38,16 +45,16 @@ Deck.prototype.length = function()
 	return this.cards.length;
 }
 
-//Makes a standard blackjack deck in a specific order
+//Makes a standard blackjack deck in a specific order. Calls clear first
 Deck.prototype.makeStandardDeck = function()
 {
 	this.clear();
 	let suits = ['Diamonds', 'Hearts', 'Clubs', 'Spades'];
 	let ranks = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
 	let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
-	for (i = 0; i < suits.length; ++i)
+	for (let i = 0; i < suits.length; ++i)
 	{
-		for (j = 0; j < ranks.length; ++j)
+		for (let j = 0; j < ranks.length; ++j)
 		{
 			this.cards.push(new Card(ranks[j], suits[i], values[j]));
 		}
