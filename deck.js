@@ -1,13 +1,20 @@
 //A deck of Card objects for blackjack
 //Requires cards.js to be loaded first
 
-//Creates and empty deck. If passed true it will load a standard deck using makeStandardDeck()
-function Deck(loadStandardDeck = false)
+//Helper method for shuffle
+//Returns a random integer on the range [low, high)
+//Low and high must be integers >= 0
+function randomBetween(low, high)
+{
+	let range = high - low;
+	return Math.floor(Math.random() * range) + low;
+}
+
+//Creates and empty deck
+function Deck()
 {
 	//note that this array is used as a stack. The first card is at the last index
 	this.cards = [];
-	if (loadStandardDeck)
-		this.makeStandardDeck();
 }
 
 Deck.prototype.clear = function()
@@ -49,6 +56,7 @@ Deck.prototype.pop = function()
 	return this.cards.pop();
 }
 
+//Adds a new card to the deck
 Deck.prototype.push = function(card)
 {
 	this.cards.push(card);
@@ -57,5 +65,12 @@ Deck.prototype.push = function(card)
 //Shuffles the deck
 Deck.prototype.shuffle = function()
 {
-	//ToDo
+	let deckLength = this.deck.length;
+	for (i = 0; i < deckLength; ++i)
+	{
+		let swapIndex = randomBetween(i, deckLength);
+		let temp = this.deck[i];
+		this.deck[i] = this.deck[swapIndex];
+		this.deck[swapIndex] = temp;
+	}
 }
