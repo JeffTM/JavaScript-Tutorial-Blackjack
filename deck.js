@@ -33,12 +33,6 @@ Deck.prototype.get = function(index)
 	return this.cards[this.cards.length - index - 1];
 }
 
-//Returns the top card on the deck but does not remove it
-Deck.prototype.getLast = function()
-{
-	return this.cards[this.cards.length - 1];
-}
-
 Deck.prototype.length = function()
 {
 	return this.cards.length;
@@ -58,6 +52,12 @@ Deck.prototype.makeStandardDeck = function()
 			this.cards.push(new Card(ranks[j], suits[i], values[j]));
 		}
 	}
+}
+
+//Returns the top card on the deck but does not remove it
+Deck.prototype.peek = function()
+{
+	return this.cards[this.cards.length - 1];
 }
 
 //Removes the top card from the deck and returns it

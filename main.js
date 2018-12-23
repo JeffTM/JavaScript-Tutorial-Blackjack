@@ -25,4 +25,14 @@ function main()
 	{
 		addStatus(deck.get(i).fullName() + ' ' + deck.get(i).value + ' ace: ' + deck.get(i).isAce());
 	}
+	addStatus('Length: ' + deck.length());
+	addStatus('Popped card: ' + deck.pop().fullName());
+	addStatus('Length: ' + deck.length());
+	addStatus('Popped card: ' + deck.pop().fullName());
+	addStatus('Length: ' + deck.length());
+	addStatus('Peeked card: ' + deck.peek().fullName());
+	deck.clear();
+	addStatus('Length: ' + deck.length());
+	deck.push(new Card('test', 'test'));
+	addStatus('Popped card: ' + deck.pop().fullName());
 }
