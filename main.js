@@ -26,6 +26,12 @@ function divSurround(str)
 	return '<div>' + str + '</div>';
 }
 
+function hitEvent()
+{
+	addStatus('hitEvent');
+}
+hitButton.addEventListener('click', hitEvent);
+
 function setStatus(text)
 {
 	console.log(text);
@@ -61,3 +67,13 @@ function showPlayerHand()
 	let divs = playerHand.fullNameList().map(divSurround);
 	playerHandArea.innerHTML = divs.join('');
 }
+
+function standEvent()
+{
+	addStatus('standEvent');
+}
+standButton.addEventListener('click', standEvent);
+
+//Call setup
+setup();
+setStatus('New game!');
