@@ -17,9 +17,11 @@ function setStatus(text)
 
 function main()
 {
-	let deck = new Deck(true);
+	let deck = new Deck();
+	deck.makeStandardDeck();
+	deck.shuffle();
 	addStatus('Game loaded. Welcome to Blackjack!');
-	for (i = 0; i < deck.length; ++i)
+	for (i = 0; i < deck.length(); ++i)
 	{
 		addStatus(deck[i].fullName() + ' ' + deck[i].value + ' ace: ' + deck[i].isAce());
 	}

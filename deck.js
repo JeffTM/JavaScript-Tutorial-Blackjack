@@ -22,6 +22,11 @@ Deck.prototype.clear = function()
 	this.cards = [];
 }
 
+Deck.prototype.isEmpty = function()
+{
+	return this.length() === 0;
+}
+
 //Gets the card at index but does not remove it
 Deck.prototype.get = function(index)
 {
@@ -32,6 +37,11 @@ Deck.prototype.get = function(index)
 Deck.prototype.getLast = function()
 {
 	return this.cards[this.cards.length - 1];
+}
+
+Deck.prototype.length = function()
+{
+	return this.cards.length;
 }
 
 //Makes a standard blackjack deck in a specific order
@@ -65,12 +75,12 @@ Deck.prototype.push = function(card)
 //Shuffles the deck
 Deck.prototype.shuffle = function()
 {
-	let deckLength = this.deck.length;
-	for (i = 0; i < deckLength; ++i)
+	let cardsLength = this.cards.length;
+	for (i = 0; i < cardsLength; ++i)
 	{
-		let swapIndex = randomBetween(i, deckLength);
-		let temp = this.deck[i];
-		this.deck[i] = this.deck[swapIndex];
-		this.deck[swapIndex] = temp;
+		let swapIndex = randomBetween(i, cardsLength);
+		let temp = this.cards[i];
+		this.cards[i] = this.cards[swapIndex];
+		this.cards[swapIndex] = temp;
 	}
 }
