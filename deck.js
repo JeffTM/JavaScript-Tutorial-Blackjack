@@ -24,9 +24,8 @@ Deck.prototype.clear = function()
 
 Deck.prototype.fullNameList = function()
 {
-	return this.cards.map(function(card) {
-		return card.fullName();
-	});
+	callFullName = function(card) {return card.fullName();}
+	return this.cards.map(callFullName);
 }
 
 Deck.prototype.isEmpty = function()

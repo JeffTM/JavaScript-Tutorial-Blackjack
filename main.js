@@ -6,15 +6,18 @@ var deck = new Deck();
 var dealerHand = new Deck();
 var playerHand = new Deck();
 
+//Document areas
+var statusArea = document.getElementById('status');
+var dealerHandArea = document.getElementById('dealerHand');
+var playerHandArea = document.getElementById('playerHand');
 
 function addStatus(text)
 {
 	console.log(text);
-	let status = document.getElementById('status');
-	status.innerHTML = status.innerHTML + divSurround(text);
+	statusArea.innerHTML = statusArea.innerHTML + divSurround(text);
 }
 
-funciton divSurround(str)
+function divSurround(str)
 {
 	return '<div>' + str + '</div>';
 }
@@ -22,8 +25,7 @@ funciton divSurround(str)
 function setStatus(text)
 {
 	console.log(text);
-	let status = document.getElementById('status');
-	status.innerHTML = divSurround(text);
+	statusArea.innerHTML = divSurround(text);
 }
 
 function setup()
@@ -46,11 +48,12 @@ function setup()
 
 function showDealerHand()
 {
-	let divs = dealerHand.fullNameList.map(divSurround);
-	document.getElementById('dealerHand').innerHTML = divs.join('');
+	let divs = dealerHand.fullNameList().map(divSurround);
+	dealerHandArea.innerHTML = divs.join('');
 }
 
 function showPlayerHand()
 {
-	
+	let divs = playerHand.fullNameList().map(divSurround);
+	playerHandArea.innerHTML = divs.join('');
 }

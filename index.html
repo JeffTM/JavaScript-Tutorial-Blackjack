@@ -4,15 +4,21 @@
 		<meta charset="UTF-8">
 		<script src="card.js"></script>
 		<script src="deck.js"></script>
-		<script src="main.js"></script>
+		
 	</head>
 	<body>
 		<h1>Blackjack</h1>
-		<h2 id="dealerHand">Dealer:</h2>
-		<h2 id="playerHand">Player:</h2>
+		<h2>Dealer</h2>
+		<div id="dealerHand"></div>
+		<h2>Player</h2>
+		<div id="playerHand"></div>
+		<button type="button" id="hitButton">Hit</button>
+		<h2>Status</h2>
 		<div id="status">
 			<div>Loading...</div>
 		</div>
+		
+		<script src="main.js"></script>
 		<script>setup()</script>
 	</body>
 </html>
