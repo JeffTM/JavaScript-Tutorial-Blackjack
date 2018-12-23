@@ -1,15 +1,19 @@
 //Main game script
 //Requires card.js and deck.js to be loaded beforehand in that order
 
-//Game variables
-var deck = new Deck();
-var dealerHand = new Deck();
-var playerHand = new Deck();
-
 //Document areas
 var statusArea = document.getElementById('status');
 var dealerHandArea = document.getElementById('dealerHand');
 var playerHandArea = document.getElementById('playerHand');
+
+//Document buttons
+var hitButton = document.getElementById('hitButton');
+var standButton = document.getElementById('standButton');
+
+//Game variables
+var deck = new Deck();
+var dealerHand = new Deck();
+var playerHand = new Deck();
 
 function addStatus(text)
 {
