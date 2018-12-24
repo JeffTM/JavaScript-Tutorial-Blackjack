@@ -22,7 +22,7 @@ function addStatus(text)
 	statusArea.innerHTML = statusArea.innerHTML + divSurround(text);
 }
 
-//The dealer takes his turn. Should be called after the player busts or stands
+//The dealer takes his turn then the game ends. Should be called after the player busts or stands
 function dealerTurn()
 {
 	addStatus("Dealer's turn");
@@ -132,14 +132,16 @@ function setStatus(text)
 
 function showDealerHand()
 {
-	let divs = dealerHand.fullNameList().map(divSurround);
-	dealerHandArea.innerHTML = divs.join('');
+	let cards = dealerHand.fullNameList().map(divSurround);
+	let score = divSurround('Score: ' + scoreDeck(dealerHand));
+	dealerHandArea.innerHTML = cards.join('') + score;
 }
 
 function showPlayerHand()
 {
-	let divs = playerHand.fullNameList().map(divSurround);
-	playerHandArea.innerHTML = divs.join('');
+	let cards = playerHand.fullNameList().map(divSurround);
+	let score = divSurround('Score: ' + scoreDeck(playerHand));
+	playerHandArea.innerHTML = cards.join('') + score;
 }
 
 function standEvent()
