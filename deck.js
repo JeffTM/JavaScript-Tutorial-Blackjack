@@ -92,6 +92,7 @@ Deck.prototype.shuffle = function()
 }
 
 //Get a list of all card values
+//ToDo: Unused. Delete?
 Deck.prototype.valueList = function()
 {
 	let getValue = function(card) {return card.value;}

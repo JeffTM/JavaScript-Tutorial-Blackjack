@@ -21,6 +21,11 @@ function addStatus(text)
 	statusArea.innerHTML = statusArea.innerHTML + divSurround(text);
 }
 
+function dealerTurn()
+{
+	
+}
+
 function divSurround(str)
 {
 	return '<div>' + str + '</div>';
@@ -30,13 +35,32 @@ function hitEvent()
 {
 	addStatus('Player hits');
 	playerHand.push(deck.pop());
+	showPlayerHand();
+	let score = scoreDeck(playerHand);
+	if (score > 21)
+	{
+		addStatus('Player busted');
+		dealerTurn();
+	}
 }
-hitButton.addEventListener('click', hitEvent);
 
 function scoreDeck(deck)
 {
 	let aceCount = 0;
-	
+	let score = 0;
+	for (let i = 0; i < deck.length(); ++i)
+	{
+		let card = deck.get(i);
+		score += card.value;
+		if (card.isAce())
+			++aceCount;
+	}
+	while (score <= 11 && aceCount > 0)
+	{
+		score += 10;
+		aceCount -= 1;
+	}
+	return score;
 }
 
 function setStatus(text)
@@ -80,7 +104,11 @@ function showPlayerHand()
 function standEvent()
 {
 	addStatus('Player stands');
+	dealerTurn();
 }
+
+//Event listeners
+hitButton.addEventListener('click', hitEvent);
 standButton.addEventListener('click', standEvent);
 
 //Call setup
