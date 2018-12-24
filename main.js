@@ -23,7 +23,8 @@ function addStatus(text)
 
 function dealerTurn()
 {
-	
+	addStatus("Dealer's turn");
+	//ToDo
 }
 
 function divSurround(str)
@@ -87,6 +88,7 @@ function setup()
 	setStatus('New game!');
 	showDealerHand();
 	showPlayerHand();
+	addStatus("Player's turn");
 }
 
 function showDealerHand()
