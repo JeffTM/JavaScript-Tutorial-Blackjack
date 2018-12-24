@@ -28,9 +28,16 @@ function divSurround(str)
 
 function hitEvent()
 {
-	addStatus('hitEvent');
+	addStatus('Player hits');
+	playerHand.push(deck.pop());
 }
 hitButton.addEventListener('click', hitEvent);
+
+function scoreDeck(deck)
+{
+	let aceCount = 0;
+	
+}
 
 function setStatus(text)
 {
@@ -52,6 +59,8 @@ function setup()
 	playerHand.push(deck.pop());
 	playerHand.push(deck.pop());
 	
+	//Update UI
+	setStatus('New game!');
 	showDealerHand();
 	showPlayerHand();
 }
@@ -70,10 +79,9 @@ function showPlayerHand()
 
 function standEvent()
 {
-	addStatus('standEvent');
+	addStatus('Player stands');
 }
 standButton.addEventListener('click', standEvent);
 
 //Call setup
 setup();
-setStatus('New game!');

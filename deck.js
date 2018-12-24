@@ -90,3 +90,10 @@ Deck.prototype.shuffle = function()
 		this.cards[swapIndex] = temp;
 	}
 }
+
+//Get a list of all card values
+Deck.prototype.valueList = function()
+{
+	let getValue = function(card) {return card.value;}
+	return this.cards.map(getValue);
+}
