@@ -53,17 +53,17 @@ function dealerTurn()
 	if (dealerBusted && playerBusted)
 		addStatus('Push');
 	else if (dealerBusted && !playerBusted)
-		addStatus('Player wins');
+		addStatus('Player wins!');
 	else if (!dealerBusted && playerBusted)
-		addStatus('Dealer wins');
+		addStatus('Dealer wins!');
 	else //No one busts
 	{
 		if (dealerScore === playerScore)
 			addStatus('Push');
 		else if (dealerScore >  playerScore)
-			addStatus('Dealer wins');
+			addStatus('Dealer wins!');
 		else
-			addStatus('Player wins');
+			addStatus('Player wins!');
 	}
 }
 
