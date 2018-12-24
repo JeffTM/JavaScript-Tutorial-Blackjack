@@ -83,6 +83,27 @@ function hitEvent()
 	}
 }
 
+function resetGame()
+{
+	//Reset decks
+	deck.makeStandardDeck();
+	deck.shuffle();
+	dealerHand.clear();
+	playerHand.clear();
+	
+	//Initial deal
+	dealerHand.push(deck.pop());
+	dealerHand.push(deck.pop());
+	playerHand.push(deck.pop());
+	playerHand.push(deck.pop());
+	
+	//Update UI
+	setStatus('New game!');
+	showDealerHand();
+	showPlayerHand();
+	addStatus("Player's turn");
+}
+
 function scoreDeck(deck)
 {
 	let aceCount = 0;
@@ -108,27 +129,6 @@ function setStatus(text)
 	statusArea.innerHTML = divSurround(text);
 }
 
-function setup()
-{
-	//Reset everything
-	deck.makeStandardDeck();
-	//deck.shuffle();
-	dealerHand.clear();
-	playerHand.clear();
-	
-	//Initial deal
-	dealerHand.push(deck.pop());
-	dealerHand.push(deck.pop());
-	playerHand.push(deck.pop());
-	playerHand.push(deck.pop());
-	
-	//Update UI
-	setStatus('New game!');
-	showDealerHand();
-	showPlayerHand();
-	addStatus("Player's turn");
-}
-
 function showDealerHand()
 {
 	let divs = dealerHand.fullNameList().map(divSurround);
@@ -151,5 +151,5 @@ function standEvent()
 hitButton.addEventListener('click', hitEvent);
 standButton.addEventListener('click', standEvent);
 
-//Call setup
-setup();
+//Call resetGame for initial setup
+resetGame();
