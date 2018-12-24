@@ -35,14 +35,17 @@ function dealerTurn()
 		dealerScore = scoreDeck(dealerHand);
 	}
 	addStatus('Dealer stands at ' + dealerScore);
-	let dealerBusts = false;
+	let dealerBusted = false;
 	if (dealerScore > 21)
+	{
 		addStatus('Dealer busted');
 		dealerBusted = true;
+	}
 		
 	//End game
 	let playerScore = scoreDeck(playerHand);
 	let playerBusted = false;
+	console.log(dealerScore, dealerBusted, playerScore, playerBusted);
 	if (playerScore > 21)
 		playerBusted = true;
 	if (dealerBusted && playerBusted)
