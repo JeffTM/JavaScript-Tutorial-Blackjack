@@ -21,10 +21,45 @@ function addStatus(text)
 	statusArea.innerHTML = statusArea.innerHTML + divSurround(text);
 }
 
+//The dealer takes his turn. Should be called after the player busts or stands
 function dealerTurn()
 {
 	addStatus("Dealer's turn");
-	//ToDo
+	//If dealer score is < 17 hit. Soft 17s not implemented
+	let dealerScore = scoreDeck(dealerHand);
+	while (dealerScore < 17)
+	{
+		let drawCard = deck.pop();
+		addStatus('Dealer draws ' + drawCard.fullName());
+		dealerHand.push(drawCard);
+		dealerScore = scoreDeck(dealerHand);
+	}
+	addStatus('Dealer stands at ' + dealerScore);
+	let dealerBusts = false;
+	if (dealerScore > 21)
+		addStatus('Dealer busted');
+		dealerBusted = true;
+		
+	//End game
+	let playerScore = scoreDeck(playerHand);
+	let playerBusted = false;
+	if (playerScore > 21)
+		playerBusted = true;
+	if (dealerBusted && playerBusted)
+		addStatus('Push');
+	else if (dealerBusted && !playerBusted)
+		addStatus('Player wins');
+	else if (!dealerBusted && playerBusted)
+		addStatus('Dealer wins');
+	else //No one busts
+	{
+		if (dealerScore === playerScore)
+			addStatus('Push');
+		else if (dealerScore >  playerScore)
+			addStatus('Dealer wins');
+		else
+			addStatus('Player wins');
+	}
 }
 
 function divSurround(str)
