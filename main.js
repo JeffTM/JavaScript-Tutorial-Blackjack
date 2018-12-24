@@ -8,6 +8,7 @@ var playerHandArea = document.getElementById('playerHand');
 
 //Document buttons
 var hitButton = document.getElementById('hitButton');
+var newGameButton = document.getElementById('newGameButton');
 var standButton = document.getElementById('standButton');
 
 //Game variables
@@ -149,6 +150,7 @@ function standEvent()
 
 //Event listeners
 hitButton.addEventListener('click', hitEvent);
+newGameButton.addEventListener('click', resetGame);
 standButton.addEventListener('click', standEvent);
 
 //Call resetGame for initial setup
