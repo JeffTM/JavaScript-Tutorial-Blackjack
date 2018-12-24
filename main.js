@@ -31,9 +31,10 @@ function dealerTurn()
 	while (dealerScore < 17)
 	{
 		let drawCard = deck.pop();
-		addStatus('Dealer draws ' + drawCard.fullName());
 		dealerHand.push(drawCard);
 		dealerScore = scoreDeck(dealerHand);
+		addStatus('Dealer draws ' + drawCard.fullName());
+		showDealerHand();
 	}
 	addStatus('Dealer stands at ' + dealerScore);
 	let dealerBusted = false;
