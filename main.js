@@ -47,7 +47,6 @@ function dealerTurn()
 	//End game
 	let playerScore = scoreDeck(playerHand);
 	let playerBusted = false;
-	console.log(dealerScore, dealerBusted, playerScore, playerBusted);
 	if (playerScore > 21)
 		playerBusted = true;
 	if (dealerBusted && playerBusted)
