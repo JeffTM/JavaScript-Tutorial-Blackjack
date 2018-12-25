@@ -36,7 +36,7 @@ function dealerTurn()
 		addStatus('Dealer draws ' + drawCard.fullName());
 		showDealerHand();
 	}
-	addStatus('Dealer stands at ' + dealerScore);
+	addStatus('Dealer stands');
 	let dealerBusted = false;
 	if (dealerScore > 21)
 	{
