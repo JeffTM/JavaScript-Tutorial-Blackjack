@@ -64,11 +64,20 @@ function dealerTurn()
 		else
 			addStatus('Player wins!');
 	}
+	
+	hideButton(hitButton);
+	hideButton(standButton);
+	showButton(newGameButton);
 }
 
 function divSurround(str)
 {
 	return '<div>' + str + '</div>';
+}
+
+function hideButton(b)
+{
+	b.style.display = 'none';
 }
 
 function hitEvent()
@@ -103,6 +112,9 @@ function resetGame()
 	showDealerHand();
 	showPlayerHand();
 	addStatus("Player's turn");
+	hideButton(newGameButton);
+	showButton(hitButton);
+	showButton(standButton);
 }
 
 function scoreDeck(deck)
@@ -128,6 +140,11 @@ function setStatus(text)
 {
 	console.log(text);
 	statusArea.innerHTML = divSurround(text);
+}
+
+function showButton(b)
+{
+	b.style.display = 'inline-block';
 }
 
 function showDealerHand()
