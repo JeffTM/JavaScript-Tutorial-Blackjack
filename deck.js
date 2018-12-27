@@ -112,14 +112,19 @@ ImageDeck.prototype.constructor = ImageDeck;
 ImageDeck.prototype.makeStandardDeck = function()
 {
 	this.clear();
+	
 	let suits = ['Diamonds', 'Hearts', 'Clubs', 'Spades'];
 	let ranks = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
 	let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+	
+	let filePathRanks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+	let fileEnding = '.svg'
+	
 	for (let i = 0; i < suits.length; ++i)
 	{
 		for (let j = 0; j < ranks.length; ++j)
 		{
-			let filePath = "./cards/" + ranks[j].toLowerCase() + "_of_" + suits[i].toLowerCase();
+			let filePath = "./cards/" + filePathRanks[j] + "_of_" + suits[i].toLowerCase() + fileEnding;
 			this.cards.push(new ImageCard(ranks[j], suits[i], filePath, values[j]));
 		}
 	}
