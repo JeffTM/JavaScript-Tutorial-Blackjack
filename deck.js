@@ -98,3 +98,29 @@ Deck.prototype.valueList = function()
 	let getValue = function(card) {return card.value;}
 	return this.cards.map(getValue);
 }
+
+//A deck that is designed to have its cards array filled with ImageCard objects
+function ImageDeck()
+{
+	Deck.call(this);
+}
+
+ImageDeck.prototype = Object.create(Deck.prototype);
+ImageDeck.prototype.constructor = ImageDeck;
+
+//Override's Deck.makeStandardDeck
+ImageDeck.prototype.makeStandardDeck = function()
+{
+	this.clear();
+	let suits = ['Diamonds', 'Hearts', 'Clubs', 'Spades'];
+	let ranks = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+	let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+	for (let i = 0; i < suits.length; ++i)
+	{
+		for (let j = 0; j < ranks.length; ++j)
+		{
+			let filePath = "./cards/" + ranks[j].toLowerCase() + "_of_" + suits[i].toLowerCase();
+			this.cards.push(new ImageCard(ranks[j], suits[i], filePath, values[j]));
+		}
+	}
+}

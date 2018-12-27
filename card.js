@@ -1,4 +1,4 @@
-//Card object
+//Card and ImageCard object
 
 //String manipulators. Maybe move these to their own file?
 function pluralize(str)
@@ -34,3 +34,13 @@ Card.prototype.isAce = function()
 	let rankLower = this.rank.toLowerCase();
 	return rankLower === 'ace' || rankLower === 'a';
 }
+
+//ImageCard is a subclass of card that has a path to its image file
+function ImageCard(rank, suit, imagePath, value = 0)
+{
+	Card.call(this, rank, suit, value);
+	this.imagePath = imagePath;
+}
+
+ImageCard.prototype = Object.create(Card.prototype);
+ImageCard.prototype.constructor = ImageCard;
