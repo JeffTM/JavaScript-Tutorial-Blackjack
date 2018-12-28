@@ -4,7 +4,9 @@
 //Document areas
 var statusArea = document.getElementById('status');
 var dealerHandArea = document.getElementById('dealerHand');
+var dealerScoreArea = document.getElementById('dealerScore');
 var playerHandArea = document.getElementById('playerHand');
+var playerScoreArea = document.getElementById('playerScore');
 
 //Document buttons
 var hitButton = document.getElementById('hitButton');
@@ -152,11 +154,13 @@ function showButton(b)
 function showDealerHand()
 {
 	dealerHand.showImagesIn(dealerHandArea);
+	dealerScoreArea.innerHTML = 'Score: ' + scoreDeck(dealerHand);
 }
 
 function showPlayerHand()
 {
 	playerHand.showImagesIn(playerHandArea);
+	playerScoreArea.innerHTML = 'Score: ' + scoreDeck(playerHand);
 }
 
 function standEvent()
