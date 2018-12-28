@@ -91,14 +91,6 @@ Deck.prototype.shuffle = function()
 	}
 }
 
-//Get a list of all card values
-//ToDo: Unused. Delete?
-Deck.prototype.valueList = function()
-{
-	let getValue = function(card) {return card.value;}
-	return this.cards.map(getValue);
-}
-
 //A deck that is designed to have its cards array filled with ImageCard objects
 function ImageDeck()
 {
