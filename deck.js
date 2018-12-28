@@ -130,11 +130,16 @@ ImageDeck.prototype.makeStandardDeck = function()
 	}
 }
 
-ImageDeck.prototype.showImagesIn(div)
+//Deletes all child nodes of node then adds the images of all its cards
+ImageDeck.prototype.showImagesIn = function(node)
 {
+	while (node.hasChildNodes())
+	{
+		node.removeChild(node.lastChild);
+	}
 	for (let i = 0; i < this.length(); ++i)
 	{
 		let img = this.cards[i].getImageElement();
-		div.appendChild(img);
+		node.appendChild(img);
 	}
 }
