@@ -44,3 +44,11 @@ function ImageCard(rank, suit, imagePath, value = 0)
 
 ImageCard.prototype = Object.create(Card.prototype);
 ImageCard.prototype.constructor = ImageCard;
+
+ImageCard.prototype.getImageElement = function()
+{
+	let img = new Image();
+	img.src = this.imagePath;
+	img.alt = this.fullName();
+	return img;
+}
