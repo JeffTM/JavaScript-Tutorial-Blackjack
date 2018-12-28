@@ -12,9 +12,9 @@ var newGameButton = document.getElementById('newGameButton');
 var standButton = document.getElementById('standButton');
 
 //Game variables
-var deck = new Deck();
-var dealerHand = new Deck();
-var playerHand = new Deck();
+var deck = new ImageDeck();
+var dealerHand = new ImageDeck();
+var playerHand = new ImageDeck();
 
 function addStatus(text)
 {
@@ -151,16 +151,12 @@ function showButton(b)
 
 function showDealerHand()
 {
-	let cards = dealerHand.fullNameList().map(divSurround);
-	let score = divSurround('Score: ' + scoreDeck(dealerHand));
-	dealerHandArea.innerHTML = cards.join('') + score;
+	dealerHand.showImagesIn(dealerHandArea);
 }
 
 function showPlayerHand()
 {
-	let cards = playerHand.fullNameList().map(divSurround);
-	let score = divSurround('Score: ' + scoreDeck(playerHand));
-	playerHandArea.innerHTML = cards.join('') + score;
+	playerHand.showImagesIn(playerHandArea);
 }
 
 function standEvent()

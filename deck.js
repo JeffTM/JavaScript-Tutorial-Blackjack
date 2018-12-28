@@ -129,3 +129,12 @@ ImageDeck.prototype.makeStandardDeck = function()
 		}
 	}
 }
+
+ImageDeck.prototype.showImagesIn(div)
+{
+	for (let i = 0; i < this.length(); ++i)
+	{
+		let img = this.cards[i].getImageElement();
+		div.appendChild(img);
+	}
+}
