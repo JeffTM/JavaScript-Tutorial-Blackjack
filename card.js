@@ -1,19 +1,7 @@
 //Card and ImageCard object
+//Requires utils.js
 
-//String manipulators. Maybe move these to their own file?
-function pluralize(str)
-{
-	if (str[str.length - 1] !== 's')
-		return str + 's';
-	else
-		return str;
-}
-
-function titleCase(str)
-{
-	return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
-
+//Object that represents a card with a rank, suit, and value
 //rank: "two" through "ten", "jack", "queen", "king", "ace"
 //suit: "diamond", "heart", "club", or "spade"
 //value: whatever number of points the card is worth in the specific game

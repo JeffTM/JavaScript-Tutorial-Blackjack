@@ -1,16 +1,8 @@
 //A deck of Card objects for blackjack
-//Requires cards.js to be loaded first
+//Requires cards.js and utils.js
 
-//Helper method for shuffle
-//Returns a random integer on the range [low, high)
-//Low and high must be integers >= 0
-function randomBetween(low, high)
-{
-	let range = high - low;
-	return Math.floor(Math.random() * range) + low;
-}
-
-//Creates and empty deck
+//A Deck is an ordered list of cards
+//Creates an empty deck
 function Deck()
 {
 	//note that this array is used as a stack. The first card is at the last index
