@@ -1,5 +1,5 @@
 //Main game script
-//Requires card.js and deck.js to be loaded beforehand in that order
+//Requires card.js, deck.js, and utils.js
 
 //Document areas
 var statusArea = document.getElementById('status');
