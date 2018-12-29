@@ -18,13 +18,15 @@ var deck = new ImageDeck();
 var dealerHand = new ImageDeck();
 var playerHand = new ImageDeck();
 
-function addStatus(text)
+//Appends a new div containing the string to the status area and logs the string to the console
+function addStatus(str)
 {
-	console.log(text);
-	statusArea.appendChild(textDiv(text));
+	console.log(str);
+	statusArea.appendChild(textDiv(str));
 }
 
-//The dealer takes his turn then the game ends. Should be called after the player busts or stands
+//The dealer takes his turn then the game ends
+//Should be called after the player busts or stands
 function dealerTurn()
 {
 	addStatus("Dealer's turn");
@@ -74,6 +76,7 @@ function dealerTurn()
 	showNode(newGameButton);
 }
 
+//Called when hitButton is pressed
 function hitEvent()
 {
 	addStatus('Player hits');
@@ -87,6 +90,8 @@ function hitEvent()
 	}
 }
 
+//Resets the game to a new game state
+//Should be called before the first game is played
 function resetGame()
 {
 	//Reset decks
@@ -111,6 +116,7 @@ function resetGame()
 	showNode(standButton);
 }
 
+//Calculates a blackjack score for a deck representing a players hand
 function scoreDeck(deck)
 {
 	let aceCount = 0;
@@ -130,24 +136,28 @@ function scoreDeck(deck)
 	return score;
 }
 
-function setStatus(text)
+//Removes all children of the status area then calls addStatus(str)
+function setStatus(str)
 {
 	removeAllChildren(statusArea);
-	addStatus(text);
+	addStatus(str);
 }
 
+//Shows the dealerHand deck in dealerHandArea
 function showDealerHand()
 {
 	dealerHand.showImagesIn(dealerHandArea);
 	dealerScoreArea.innerHTML = 'Score: ' + scoreDeck(dealerHand);
 }
 
+//Shows the playerHand deck in playerHandArea
 function showPlayerHand()
 {
 	playerHand.showImagesIn(playerHandArea);
 	playerScoreArea.innerHTML = 'Score: ' + scoreDeck(playerHand);
 }
 
+//Called when standButton is pressed
 function standEvent()
 {
 	addStatus('Player stands');
