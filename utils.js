@@ -32,7 +32,7 @@ function removeAllChildren(node)
 }
 
 //Sets a nodes diplay to "inline-block"
-function showNode(node)
+function showNodeInlineBlock(node)
 {
 	node.style.display = "inline-block";
 }

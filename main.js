@@ -73,7 +73,7 @@ function dealerTurn()
 	
 	hideNode(hitButton);
 	hideNode(standButton);
-	showNode(newGameButton);
+	showNodeInlineBlock(newGameButton);
 }
 
 //Called when hitButton is pressed
@@ -112,8 +112,8 @@ function resetGame()
 	showPlayerHand();
 	addStatus("Player's turn");
 	hideNode(newGameButton);
-	showNode(hitButton);
-	showNode(standButton);
+	showNodeInlineBlock(hitButton);
+	showNodeInlineBlock(standButton);
 }
 
 //Calculates a blackjack score for a deck representing a players hand
