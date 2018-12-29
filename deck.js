@@ -122,10 +122,7 @@ ImageDeck.prototype.makeStandardDeck = function()
 //Deletes all child nodes of node then adds the images of all its cards
 ImageDeck.prototype.showImagesIn = function(node)
 {
-	while (node.hasChildNodes())
-	{
-		node.removeChild(node.lastChild);
-	}
+	removeAllChildren(node);
 	for (let i = 0; i < this.length(); ++i)
 	{
 		node.appendChild(this.get(i).getImageElement());

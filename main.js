@@ -21,7 +21,7 @@ var playerHand = new ImageDeck();
 function addStatus(text)
 {
 	console.log(text);
-	statusArea.innerHTML = statusArea.innerHTML + divSurround(text);
+	statusArea.appendChild(textDiv(text));
 }
 
 //The dealer takes his turn then the game ends. Should be called after the player busts or stands
@@ -69,19 +69,9 @@ function dealerTurn()
 			addStatus('Player wins!');
 	}
 	
-	hideButton(hitButton);
-	hideButton(standButton);
-	showButton(newGameButton);
-}
-
-function divSurround(str)
-{
-	return '<div>' + str + '</div>';
-}
-
-function hideButton(b)
-{
-	b.style.display = 'none';
+	hideNode(hitButton);
+	hideNode(standButton);
+	showNode(newGameButton);
 }
 
 function hitEvent()
@@ -116,9 +106,9 @@ function resetGame()
 	showDealerHand();
 	showPlayerHand();
 	addStatus("Player's turn");
-	hideButton(newGameButton);
-	showButton(hitButton);
-	showButton(standButton);
+	hideNode(newGameButton);
+	showNode(hitButton);
+	showNode(standButton);
 }
 
 function scoreDeck(deck)
@@ -142,13 +132,8 @@ function scoreDeck(deck)
 
 function setStatus(text)
 {
-	console.log(text);
-	statusArea.innerHTML = divSurround(text);
-}
-
-function showButton(b)
-{
-	b.style.display = 'inline-block';
+	removeAllChildren(statusArea);
+	addStatus(text);
 }
 
 function showDealerHand()
