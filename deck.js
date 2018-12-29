@@ -113,7 +113,7 @@ ImageDeck.prototype.makeStandardDeck = function()
 	{
 		for (let j = 0; j < ranks.length; ++j)
 		{
-			let filePath = "./cards/" + filePathRanks[j] + "_of_" + suits[i].toLowerCase() + fileEnding;
+			let filePath = "cards/" + filePathRanks[j] + "_of_" + suits[i].toLowerCase() + fileEnding;
 			this.cards.push(new ImageCard(ranks[j], suits[i], filePath, values[j]));
 		}
 	}
