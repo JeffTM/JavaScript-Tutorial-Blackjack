@@ -5,7 +5,6 @@
 //Creates an empty deck
 function Deck()
 {
-	//note that this array is used as a stack. The first card is at the last index
 	this.cards = [];
 }
 
@@ -28,7 +27,7 @@ Deck.prototype.isEmpty = function()
 //Gets the card at index but does not remove it
 Deck.prototype.get = function(index)
 {
-	return this.cards[this.cards.length - index - 1];
+	return this.cards[index];
 }
 
 Deck.prototype.length = function()
