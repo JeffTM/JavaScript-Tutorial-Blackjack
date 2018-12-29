@@ -54,7 +54,7 @@ Deck.prototype.makeStandardDeck = function()
 //Returns the top card on the deck but does not remove it
 Deck.prototype.peek = function()
 {
-	return this.cards[this.cards.length - 1];
+	return this.get(this.length() - 1);
 }
 
 //Removes the top card from the deck and returns it
@@ -69,16 +69,22 @@ Deck.prototype.push = function(card)
 	this.cards.push(card);
 }
 
+//Sets the card at index
+Deck.prototype.set = function(index, newCard)
+{
+	this.cards[index] = newCard;
+}
+
 //Shuffles the deck
 Deck.prototype.shuffle = function()
 {
-	let cardsLength = this.cards.length;
-	for (i = 0; i < cardsLength; ++i)
+	let deckLength = this.length();
+	for (i = 0; i < deckLength; ++i)
 	{
-		let swapIndex = randomBetween(i, cardsLength);
-		let temp = this.cards[i];
-		this.cards[i] = this.cards[swapIndex];
-		this.cards[swapIndex] = temp;
+		let swapIndex = randomBetween(i, deckLength);
+		let temp = this.get(i);
+		this.set(i, this.get(swapIndex));
+		this.set(swapIndex, temp);
 	}
 }
 
@@ -122,7 +128,6 @@ ImageDeck.prototype.showImagesIn = function(node)
 	}
 	for (let i = 0; i < this.length(); ++i)
 	{
-		let img = this.cards[i].getImageElement();
-		node.appendChild(img);
+		node.appendChild(this.get(i).getImageElement());
 	}
 }
